@@ -9,6 +9,9 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // as duas linhas abaixos são para manter o header fixo no topo dá página.
+  position: sticky;
+  top: 0;
 `;
 
 export const LogoContainer = styled.div`

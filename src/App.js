@@ -2,13 +2,11 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/indexHeader";
 import Menu from "./components/menu/indexMenu";
-import Home from "./pages/home";
+import Home from "./pages/home/indexHome";
 import Shorts from "./pages/shorts";
 import Subscriptions from "./pages/subscriptions";
 import YourChannel from "./pages/yourChannel";
 import history from "./pages/history";
-//import YourVideos from "./pages/yourVideos";
-//import WatchLater from "./pages/watchLater";
 import Trending from "./pages/trending";
 import Music from "./pages/music";
 import Movies from "./pages/movies";
@@ -40,7 +38,7 @@ function App() {
         <div style={{ width: "100%" , display: "flex"}}>
           {/* passamos indicando se esta aberto ou fechado dentro da variável openMenu. */}
           <Menu openMenu={openMenu} />
-          <div style={{ width: "100%" }}>
+          <div style={{ width: "100%", padding: "50px 70px", boxSizing: "border-box", display: "flex", justifyContent: "center" }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/shorts" element={<Shorts />} />

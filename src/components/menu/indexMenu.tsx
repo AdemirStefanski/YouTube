@@ -23,6 +23,8 @@ import HelpIcon from "../../assets/help.png"
 import FeedbackIcon from "../../assets/feedback.png"
 
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { MenuContext } from "../../contexts/openMenuContext";
 
 
 const  items = [{name: "Home", link: "/", icon: HomeIcon},
@@ -47,12 +49,10 @@ const  items = [{name: "Home", link: "/", icon: HomeIcon},
                 {name: "Help", link: "/help", icon: HelpIcon},
                 {name: "Send feedback", link: "/sendFeedback", icon: FeedbackIcon},]
 
-//criado para trabalhar com a função de abrir e fechar o Menu.
-interface IProps {
-  openMenu: boolean;
-}
 
-function Menu({ openMenu } : IProps){
+
+function Menu(){
+  const {openMenu, setOpenMenu} = useContext(MenuContext);
   const navigate = useNavigate();
   return(
     <Container openMenu={openMenu}>

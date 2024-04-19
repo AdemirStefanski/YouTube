@@ -12,6 +12,9 @@ export const Container = styled.div<{ openMenu: boolean}>`
   flex-direction: column;
   //caso os itens ultrapassem o limite do elemento, cria-se um scroll automáticamente.
   overflow-y: auto;
+  // para manter o menu fixo no topo com distância de 55px que é o tamanho do header.
+  position: sticky;
+  top: 55px;
   
 `;
 

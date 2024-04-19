@@ -5,14 +5,15 @@ import SearchIcon from "../../assets/search.png";
 import MicIcon from "../../assets/microfone-gravador.png";
 import NotificationIcon from "../../assets/sino.png";
 import VideoIcon from "../../assets/video.png";
+import { useContext } from "react";
+import { MenuContext } from "../../contexts/openMenuContext";
 
-//criado para trabalhar com a função de abrir e fechar o Menu.
-interface IProps {
-  openMenu: boolean;
-  setOpenMenu: (openMenu: boolean) => void
-}
 
-function Header({ openMenu, setOpenMenu}: IProps) {
+
+function Header() {
+  
+  const {openMenu, setOpenMenu} = useContext(MenuContext);
+
   return (
     <Container>
       <LogoContainer>
