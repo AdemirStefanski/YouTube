@@ -7,11 +7,16 @@ import NotificationIcon from "../../assets/sino.png";
 import VideoIcon from "../../assets/video.png";
 import { useContext } from "react";
 import { MenuContext } from "../../contexts/openMenuContext";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/userContext";
 
 
 
 function Header() {
-  
+
+  const { login } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const {openMenu, setOpenMenu} = useContext(MenuContext);
 
   return (
@@ -45,9 +50,14 @@ function Header() {
           {/* margin esta com uma string que define margin nesse contexto do ButtonContainer. */}
           <ButtonIcon alt="" src={NotificationIcon} />
         </ButtonContainer>
+
+        {login? 
         <ButtonContainer margin="0 0 0 10px">
           AS
         </ButtonContainer>
+        :
+        <button onClick={() => navigate("/login")}>Fazer Login</button>
+        }
 
       </HeaderButton>
 

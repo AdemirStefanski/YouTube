@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
 `;
 
+
 export const ImageBanner = styled.img`
   width: 100%;
   height: 210px;
@@ -20,12 +21,14 @@ export const TitleContainer = styled.div`
 export const ChannelImage = styled.div`
   background-color: beige;
   width: 40px;
+  min-width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   margin-right: 10px;
+  font-weight: 600;
   
   
 `;

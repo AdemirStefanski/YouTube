@@ -24,6 +24,7 @@ import Settings from "./pages/settings";
 import ReportHistory from "./pages/reportHistory";
 import Help from "./pages/help";
 import SendFeedback from "./pages/sendFeedback";
+import Login from "./pages/login/indexLogin";
 
 function App() {
 
@@ -32,44 +33,47 @@ function App() {
   const [openMenu, setOpenMenu] = useState(true);
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header openMenu={openMenu} setOpenMenu={setOpenMenu}/>
-        <div style={{ width: "100%" , display: "flex"}}>
-          {/* passamos indicando se esta aberto ou fechado dentro da variável openMenu. */}
-          <Menu openMenu={openMenu} />
-          <div style={{ width: "100%", padding: "50px 70px", boxSizing: "border-box", display: "flex", justifyContent: "center" }}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/shorts" element={<Shorts />} />
-              <Route path="/subscriptions" element={<Subscriptions />} />
-              <Route path="/yourchannel" element={<YourChannel />} />
-              <Route path="/history" element={<history />} />
-              <Route path="/trending" element={<Trending />} />
-              <Route path="/music" element={<Music />} />
-              <Route path="/movies" element={<Movies />} />
-              <Route path="/live" element={<Live />} />
-              <Route path="/gaming" element={<Gaming />} />
-              <Route path="/news" element={<News />} />
-              <Route path="/sports" element={<Sports />} />
-              <Route path="/learning" element={<Learning />} />
-              <Route path="/podcasts" element={<Podcasts />} />
-              <Route path="/youTubePremium" element={<YouTubePremium />} />
-              <Route path="/youTubeMusic" element={<YouTubeMusic />} />
-              <Route path="/youTubeKids" element={<YouTubeKids />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/reportHistory" element={<ReportHistory />} />
-              <Route path="/help" element={<Help />} />
-              <Route path="/sendFeedback" element={<SendFeedback />} />
+    <UserStorage>
+
+      <BrowserRouter>
+        <div className="App">
+          <Header openMenu={openMenu} setOpenMenu={setOpenMenu}/>
+          <div style={{ width: "100%" , display: "flex"}}>
+            {/* passamos indicando se esta aberto ou fechado dentro da variável openMenu. */}
+            <Menu openMenu={openMenu} />
+            <div style={{ width: "100%", padding: "50px 70px", boxSizing: "border-box", display: "flex", justifyContent: "center" }}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/shorts" element={<Shorts />} />
+                <Route path="/subscriptions" element={<Subscriptions />} />
+                <Route path="/yourchannel" element={<YourChannel />} />
+                <Route path="/history" element={<history />} />
+                <Route path="/trending" element={<Trending />} />
+                <Route path="/music" element={<Music />} />
+                <Route path="/movies" element={<Movies />} />
+                <Route path="/live" element={<Live />} />
+                <Route path="/gaming" element={<Gaming />} />
+                <Route path="/news" element={<News />} />
+                <Route path="/sports" element={<Sports />} />
+                <Route path="/learning" element={<Learning />} />
+                <Route path="/podcasts" element={<Podcasts />} />
+                <Route path="/youTubePremium" element={<YouTubePremium />} />
+                <Route path="/youTubeMusic" element={<YouTubeMusic />} />
+                <Route path="/youTubeKids" element={<YouTubeKids />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/reportHistory" element={<ReportHistory />} />
+                <Route path="/help" element={<Help />} />
+                <Route path="/sendFeedback" element={<SendFeedback />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+            </div>
+            <div>
               
-            </Routes>
-          </div>
-          <div>
-            
+            </div>
           </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserStorage>
   );
 }
 
