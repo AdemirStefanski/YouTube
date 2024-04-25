@@ -1,4 +1,15 @@
-import { Container, LogoContainer, ButtonContainer, ButtonIcon, YoutubeLogo, SearchContainer, SearchInputContainer, SearchInput, SearchButton, HeaderButton } from "./stylesHeader";
+import {
+  Container,
+  LogoContainer,
+  ButtonContainer,
+  ButtonIcon,
+  YoutubeLogo,
+  SearchContainer,
+  SearchInputContainer,
+  SearchInput,
+  SearchButton,
+  HeaderButton,
+} from "./stylesHeader";
 import HamburguerIcon from "../../assets/hamburger.png";
 import YoutubeLogoCat from "../../assets/YouTubeCat.gif";
 import SearchIcon from "../../assets/search.png";
@@ -10,19 +21,19 @@ import { MenuContext } from "../../contexts/openMenuContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 
-
-
 function Header() {
-
-  const { login } = useContext(UserContext);
+  const { login, logOut } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const {openMenu, setOpenMenu} = useContext(MenuContext);
+  const { openMenu, setOpenMenu } = useContext(MenuContext);
 
   return (
     <Container>
       <LogoContainer>
-        <ButtonContainer onClick={() => setOpenMenu(!openMenu)}  margin="0 10px 0 0">
+        <ButtonContainer
+          onClick={() => setOpenMenu(!openMenu)}
+          margin="0 10px 0 0"
+        >
           <ButtonIcon alt="" src={HamburguerIcon} />
         </ButtonContainer>
         <YoutubeLogo alt="" src={YoutubeLogoCat} />
@@ -36,7 +47,7 @@ function Header() {
           <ButtonIcon alt="" src={SearchIcon} />
         </SearchButton>
         {/* margin esta com uma string que define margin nesse contexto do ButtonContainer. */}
-        <ButtonContainer margin="0 0 0 10px">  
+        <ButtonContainer margin="0 0 0 10px">
           <ButtonIcon alt="" src={MicIcon} />
         </ButtonContainer>
       </SearchContainer>
@@ -51,16 +62,18 @@ function Header() {
           <ButtonIcon alt="" src={NotificationIcon} />
         </ButtonContainer>
 
-        {login? 
-        <ButtonContainer margin="0 0 0 10px">
-          AS
-        </ButtonContainer>
+        {login ?
+          <> 
+            <ButtonContainer margin="0 0 0 10px">
+              AS
+            </ButtonContainer>
+            
+            <span onClick={() => logOut()}>Sair</span>
+          </>
         :
-        <button onClick={() => navigate("/login")}>Fazer Login</button>
+          <button onClick={() => navigate("/login")}>Fazer Login</button>
         }
-
       </HeaderButton>
-
     </Container>
   );
 }

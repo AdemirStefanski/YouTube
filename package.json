@@ -40,5 +40,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.34"
+  },
+  "overrides": {
+    "@svgr/webpack": "$@svgr/webpack"
   }
 }

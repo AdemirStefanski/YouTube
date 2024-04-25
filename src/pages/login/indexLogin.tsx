@@ -13,7 +13,7 @@ function Login(){
       </div>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      //vamos chamar a função que passa o email e password, a função handleLogin que foi criada dentro do context/userContext;
+      {/* vamos chamar a função que passa o email e password, a função handleLogin que foi criada dentro do context/userContext; */}
       <button onClick={() => handleLogin(email, password)}>Login</button>
     </>
   )

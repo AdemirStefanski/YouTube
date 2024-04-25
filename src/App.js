@@ -17,7 +17,6 @@ import Sports from "./pages/sports";
 import Learning from "./pages/learning";
 import Podcasts from "./pages/podcasts";
 import YouTubePremium from "./pages/youTubePremium";
-import YouTubeStudio from "./pages/youTubeStudio";
 import YouTubeMusic from "./pages/YouTubeMusic";
 import YouTubeKids from "./pages/youTubeKids";
 import Settings from "./pages/settings";
@@ -25,23 +24,30 @@ import ReportHistory from "./pages/reportHistory";
 import Help from "./pages/help";
 import SendFeedback from "./pages/sendFeedback";
 import Login from "./pages/login/indexLogin";
+import { UserStorage } from "./contexts/userContext";
 
 function App() {
-
   //simulação de estado global para abrir e fechar menu.
   //como o estado do menu se resume entre aberto e fechado, podemos usar um boolean para isso, aberto(true) e fechado(false).
   const [openMenu, setOpenMenu] = useState(true);
 
   return (
     <UserStorage>
-
       <BrowserRouter>
         <div className="App">
-          <Header openMenu={openMenu} setOpenMenu={setOpenMenu}/>
-          <div style={{ width: "100%" , display: "flex"}}>
+          <Header openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <div style={{ width: "100%", display: "flex" }}>
             {/* passamos indicando se esta aberto ou fechado dentro da variável openMenu. */}
             <Menu openMenu={openMenu} />
-            <div style={{ width: "100%", padding: "50px 70px", boxSizing: "border-box", display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                width: "100%",
+                padding: "50px 70px",
+                boxSizing: "border-box",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/shorts" element={<Shorts />} />
@@ -67,9 +73,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
               </Routes>
             </div>
-            <div>
-              
-            </div>
+            <div></div>
           </div>
         </div>
       </BrowserRouter>

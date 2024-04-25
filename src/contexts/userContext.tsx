@@ -25,6 +25,14 @@ export const UserStorage = ({ children }: any) => {
     getUser(token);
   }, [token]);
 
+  //função de logout que remove o token de autorização do usuário, coloca o estado do login para false e limpa os dados do usuário dentro do objeto;
+  const logOut = () => {
+    localStorage.removeItem("token");
+    setLogin(false);
+    setUser({});
+  }
+
+
   const handleLogin = (email: string, password: string) => {
     api
       .post("/user/sign-in", { email, password })
@@ -48,6 +56,7 @@ export const UserStorage = ({ children }: any) => {
         login,
         user,
         handleLogin,
+        logOut
       }}
     >
       {children}
