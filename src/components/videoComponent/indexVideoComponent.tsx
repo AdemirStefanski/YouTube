@@ -1,18 +1,26 @@
 import { ChannelImage, Container, ImageBanner, TextCard, TextContainer, Title, TitleContainer } from "./stylesVideoComponent";
 
-function VideoComponent({video}: any){
+interface Props {
+  title: string
+  thumbnail: string
+  channelImage: string
+  channelName: string
+  details: string
+}
+
+function VideoComponent(props: Props){
   
   return(
     <Container>
-      <ImageBanner src={video.image} />
+      <ImageBanner src={props.thumbnail} />
       <TitleContainer>
         <ChannelImage>
-          AS
+          {props.channelImage}
         </ChannelImage>
         <TextContainer>
-          <Title>{video.title}</Title>
-          <TextCard>{video.channel}</TextCard>
-          <TextCard>{video.views} views - {video.time} ago</TextCard>
+          <Title>{props.title}</Title>
+          <TextCard>{props.channelName}</TextCard>
+          <TextCard>{props.details}</TextCard>
         </TextContainer>
       </TitleContainer>
 
@@ -20,5 +28,26 @@ function VideoComponent({video}: any){
 
   );
 }
+
+// function VideoComponent({video}: any){
+  
+//   return(
+//     <Container>
+//       <ImageBanner src={video.image} />
+//       <TitleContainer>
+//         <ChannelImage>
+//           AS
+//         </ChannelImage>
+//         <TextContainer>
+//           <Title>{video.title}</Title>
+//           <TextCard>{video.channel}</TextCard>
+//           <TextCard>{video.views} views - {video.time} ago</TextCard>
+//         </TextContainer>
+//       </TitleContainer>
+
+//     </Container>
+
+//   );
+// }
 
 export default VideoComponent;
