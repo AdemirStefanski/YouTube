@@ -101,7 +101,11 @@ function Home() {
 
   return (
     <MainContainer openMenu={openMenu}>
+<<<<<<< HEAD
       
+=======
+      <CategoryBar />
+>>>>>>> 5ec2c66c71f96eb6b23664b44c4198a58ee4116a
       <Container openMenu={openMenu}>
         {videos.map((video) => (
           <VideoComponent
