@@ -101,7 +101,7 @@ function Home() {
 
   return (
     <MainContainer openMenu={openMenu}>
-      <CategoryBar />
+      
       <Container openMenu={openMenu}>
         {videos.map((video) => (
           <VideoComponent
