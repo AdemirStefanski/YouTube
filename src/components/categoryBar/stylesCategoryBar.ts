@@ -6,22 +6,33 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  width: ${({openMenu}) => openMenu? '82%' : '93%'};
+  width: ${({openMenu}) => openMenu? '80%' : 'inherit'};
+  
+  
+  max-width: inherit;
   height: 56px;
   position: fixed;
   top: 55px;
-  right: 0;
+  
   display: flex;
   align-items: center;
-  background-color: ${({theme}) => theme.colors.secondary};
-  z-index: 1;
+  
+  
+  
+  
+  @media(max-width: 1500px) {
+    width: ${({openMenu}) => openMenu? '75%' : '80%'};
+    
+  }
+
 
   @media(max-width: 1024px) {
     width: ${({openMenu}) => openMenu? '73%' : '92%'};
+    
   }
 
   @media(max-width: 834px) {
-    width: 88%;
+    width: 100%;
   }
 
   @media(max-width: 688px) {
@@ -45,12 +56,13 @@ export const Button = styled.button`
   border: none;
   outline: none;
   font-size: 14px;
-  font-weight: 400;
-  color: ${({theme}) => theme.colors.primary};
+  font-weight: 500;
+  color: ${({theme}) => theme.colors.category};
   background-color: ${({theme}) => theme.colors.bgColor};
 
   &:hover{
     background-color: ${({theme}) => theme.colors.borderColor};
+    font-weight: 550;
   }
 
   &:focus {
@@ -76,6 +88,18 @@ export const SliderContent = styled.div`
   justify-content: flex-start;
   column-gap: 20px;
   height: 100%;
+  
+`;
+
+
+export const SliderButtonsContent = styled.div`
+width: 65px;
+min-width: 65px;
+height: 56px;
+display: flex;
+justify-content: center;
+align-items: center;
+
 `;
 
 export const SliderButtons = styled.div`
@@ -87,7 +111,7 @@ export const SliderButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+    
   &:hover{
     background-color: ${({theme}) => theme.colors.bgColor};
   }
@@ -96,5 +120,8 @@ export const SliderButtons = styled.div`
 export const ButtonIcon = styled.img`
   width: 25px;
   height: 25px;
+  object-fit: contain;
   border-radius: 50%;
+  
+  
 `;

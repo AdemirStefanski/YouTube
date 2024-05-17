@@ -12,7 +12,7 @@ const api = axios.create({
     "Acess-Control-Allow-Origin": "*",
     "Contente-Type": "application/json",
     //"Authorization": token
-  }
-})
+  },
+});
 
 export default api;

@@ -24,7 +24,7 @@ import FeedbackIcon from "../../assets/feedback.png"
 
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { MenuContext } from "../../contexts/openMenuContext";
+import { useOpenMenu } from "../../contexts/openMenuContext";
 
 
 const  items = [{name: "Home", link: "/", icon: HomeIcon},
@@ -52,7 +52,7 @@ const  items = [{name: "Home", link: "/", icon: HomeIcon},
 
 
 function Menu(){
-  const {openMenu, setOpenMenu} = useContext(MenuContext);
+  const { openMenu } = useOpenMenu();
   const navigate = useNavigate();
   return(
     <Container openMenu={openMenu}>

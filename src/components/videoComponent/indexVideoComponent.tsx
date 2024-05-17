@@ -1,3 +1,4 @@
+import { useOpenMenu } from "../../contexts/openMenuContext";
 import { ChannelImage, Container, ImageBanner, TextCard, TextContainer, Title, TitleContainer } from "./stylesVideoComponent";
 
 interface Props {
@@ -8,11 +9,14 @@ interface Props {
   details: string
 }
 
+
 function VideoComponent(props: Props){
+  
+  const { openMenu } = useOpenMenu();
   
   return(
     <Container>
-      <ImageBanner src={props.thumbnail} />
+      <ImageBanner src={props.thumbnail} openMenu={openMenu} />
       <TitleContainer>
         <ChannelImage>
           {props.channelImage}
@@ -29,25 +33,6 @@ function VideoComponent(props: Props){
   );
 }
 
-// function VideoComponent({video}: any){
-  
-//   return(
-//     <Container>
-//       <ImageBanner src={video.image} />
-//       <TitleContainer>
-//         <ChannelImage>
-//           AS
-//         </ChannelImage>
-//         <TextContainer>
-//           <Title>{video.title}</Title>
-//           <TextCard>{video.channel}</TextCard>
-//           <TextCard>{video.views} views - {video.time} ago</TextCard>
-//         </TextContainer>
-//       </TitleContainer>
 
-//     </Container>
-
-//   );
-// }
 
 export default VideoComponent;
