@@ -54,13 +54,48 @@ export const ButtonIcon = styled.img`
   width: 20px;
 `;
 
+export const BackButton = styled.button<Responsive>`
+  display: ${({openSearch}) => openSearch? 'flex' : 'none'};
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: .4s;
+  margin-left: 10px;
+
+  &:hover{
+    background-color: ${({theme}) => theme.colors.bgColor};
+  }
+`;
+
+export const SearchButtonResponsive = styled.div`
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  border: 1px solid #d3d3d3;
+  cursor: pointer;
+`;
+
 export const YoutubeLogo = styled.img`
   width: 100px;
   cursor: pointer;
 `;
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.div<Responsive>`
   display: flex;
+`;
+
+export const LinkLogo = styled(NavLink)`
+  width: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SearchInputContainer = styled.div`

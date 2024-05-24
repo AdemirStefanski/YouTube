@@ -32,8 +32,8 @@ function App() {
   const [openMenu, setOpenMenu] = useState(true);
 
   return (
-    <UserStorage>
-      <BrowserRouter>
+    <BrowserRouter>
+      <UserStorage>
         <div className="App">
           <Header openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <div style={{ width: "100%", display: "flex" }}>
@@ -76,8 +76,8 @@ function App() {
             <div></div>
           </div>
         </div>
-      </BrowserRouter>
-    </UserStorage>
+      </UserStorage>
+    </BrowserRouter>
   );
 }
 
