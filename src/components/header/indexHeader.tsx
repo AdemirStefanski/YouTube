@@ -9,6 +9,9 @@ import {
   SearchInput,
   SearchButton,
   HeaderButton,
+  ClearButton,
+  CloseImg
+
 } from "./stylesHeader";
 import HamburguerIcon from "../../assets/hamburger.png";
 import YoutubeLogoCat from "../../assets/YouTubeCat.gif";
@@ -16,16 +19,76 @@ import SearchIcon from "../../assets/search.png";
 import MicIcon from "../../assets/microfone-gravador.png";
 import NotificationIcon from "../../assets/sino.png";
 import VideoIcon from "../../assets/video.png";
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { MenuContext } from "../../contexts/openMenuContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
+import { useCategoryContext } from "../../contexts/searchCategories";
+import { useSearchContext } from "../../contexts/searchContext";
+import CloseIcon from "../../assets/close.png"
+
+
 
 function Header() {
-  const { login, logOut } = useContext(UserContext);
   const navigate = useNavigate();
 
   const { openMenu, setOpenMenu } = useContext(MenuContext);
+
+  const [clearButton, setClearButton] = useState(false)
+
+  const [openSearch, setOpenSearch] = useState(false)
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const Search = () => {
+    setOpenSearch(true)
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }
+
+  const { login, logOut, user, openDropDownMenu, setOpenDropDownMenu } = useContext(UserContext)
+
+  
+  const handleDropDownMenu = () => {
+    setOpenDropDownMenu(!openDropDownMenu)
+  }
+
+  const { setSearch } = useSearchContext()
+
+  const [inputValue, setInputValue] = useState('')
+
+  function handleInput(inputValue: string) {
+    setInputValue(inputValue)
+    if (inputValue === '') {
+      setClearButton(false)
+    } else (
+      setClearButton(true)
+    )
+  }
+
+
+  const clearInput = () => {
+    setInputValue('')
+    setClearButton(false)
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }
+
+  const goOut = () => {
+    logOut()
+    handleDropDownMenu()
+    navigate('/')
+  }
+
+  const goYourVideos = () => {
+    navigate('/yourvideos')
+    handleDropDownMenu()
+  }
+
+  const { setCategoryId } = useCategoryContext()
+
 
   return (
     <Container>
@@ -41,7 +104,30 @@ function Header() {
 
       <SearchContainer>
         <SearchInputContainer>
-          <SearchInput placeholder="Pesquisar" />
+        <SearchInput
+            ref={inputRef}
+            value={inputValue}
+            placeholder="Pesquisar"
+            onChange={(e) => {
+              handleInput(e.target.value)
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setSearch(inputValue)
+                navigate('/search')
+                setOpenSearch(false)
+              }
+            }}
+          />
+          <ClearButton
+            clearButton={clearButton}
+            onClick={clearInput}
+          >
+
+            <CloseImg src={CloseIcon} />
+
+          </ClearButton>
+
         </SearchInputContainer>
         <SearchButton>
           <ButtonIcon alt="" src={SearchIcon} />

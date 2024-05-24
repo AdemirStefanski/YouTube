@@ -1,4 +1,18 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
+
+interface ContainerProps {
+  openDropDownMenu: boolean;
+}
+
+interface ClearButtonProps {
+  clearButton: boolean;
+}
+
+interface Responsive {
+  openSearch: boolean
+}
 
 export const Container = styled.header`
   width: 100%;
@@ -81,4 +95,24 @@ export const SearchButton = styled.div`
 export const HeaderButton = styled.div`
   width:200px;
   display: flex;
+`;
+
+export const ClearButton = styled.button<ClearButtonProps>`
+  display: ${({clearButton}) => clearButton? 'flex' : 'none'};
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: .4s;
+  background-color: ${({theme}) => theme.colors.secondary};
+
+  &:hover{
+    background-color: ${({theme}) => theme.colors.borderColor};
+  }
+`;
+export const CloseImg = styled.img`
+  width: 15px;
 `;
