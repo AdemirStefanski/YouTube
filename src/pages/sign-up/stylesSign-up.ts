@@ -7,7 +7,7 @@ interface InputValid {
 
 export const MainContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   max-width: 1600px;
   display: flex;
   align-items: center;

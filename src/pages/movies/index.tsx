@@ -1,7 +1,7 @@
 function Movies(){
   return(
     <div>
-      Home
+      Movies
     </div>
   );
 }

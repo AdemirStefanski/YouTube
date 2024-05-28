@@ -94,8 +94,7 @@ function SearchPage() {
 
   return (
     <SearchContainer>
-      <Header />
-      <Menu />
+      
       <Container openMenu={openMenu}>
         {videos.map((video, index) => (
             <VideoSearchCard

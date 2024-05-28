@@ -24,6 +24,8 @@ import ReportHistory from "./pages/reportHistory";
 import Help from "./pages/help";
 import SendFeedback from "./pages/sendFeedback";
 import Login from "./pages/login/indexLogin";
+import SignUp from "./pages/sign-up/indexSign-up";
+import SearchPage from "./pages/search/indexSearchPage";
 import { UserStorage } from "./contexts/userContext";
 
 function App() {
@@ -71,6 +73,8 @@ function App() {
                 <Route path="/help" element={<Help />} />
                 <Route path="/sendFeedback" element={<SendFeedback />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/sign-up" element={<SignUp />} />
               </Routes>
             </div>
             <div></div>

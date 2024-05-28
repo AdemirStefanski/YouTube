@@ -129,7 +129,7 @@ function Login() {
           <label htmlFor="show-password">Mostrar senha</label>
         </CheckBoxContainer>
         <ButtonsContainer>
-          <SignUp onClick={() => navigate('/sign-up')}>
+          <SignUp onClick={() => navigate("/sign-up")}>
             Criar conta
           </SignUp>
           <LoginButton 
