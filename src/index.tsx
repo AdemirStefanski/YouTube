@@ -8,9 +8,7 @@ import { MenuStore } from "./contexts/openMenuContext";
 import { SearchProvider } from "./contexts/searchContext";
 import { CategoryProvider } from "./contexts/searchCategories";
 
-
-//const root = ReactDOM.createRoot(document.getElementById("root"));
-
+//Heroku acess port
 const PORT = process.env.PORT || 5001
 
 const root = ReactDOM.createRoot(
